@@ -1,0 +1,416 @@
+---
+layout: layouts/base.njk
+title: Menu
+description: "Breakfast, signature sandwiches, wraps, cheesesteaks, burgers, smoothies, and more at Maxx Deli & Shop."
+---
+
+{% set menuSections = [
+  {
+    title: "Breakfast",
+    groups: [
+      {
+        title: "Breakfast Platter + Toast",
+        items: [
+          { name: "French Toast, Bacon & Egg", price: "$11.99" },
+          { name: "Pancakes, Bacon & Egg", price: "$11.99" },
+          { name: "Home Fries, Bacon & Egg", price: "$11.99" },
+          { name: "Western Omelet", description: "Ham, egg, peppers, onions and cheese", price: "$9.99" }
+        ]
+      },
+      {
+        title: "Bagels",
+        items: [
+          { name: "Bagel with Butter", price: "$1.99" },
+          { name: "Bagel with Cream Cheese", price: "$1.99" },
+          { name: "Bagel with Cream Cheese & Jelly", price: "$2.49" }
+        ]
+      },
+      {
+        title: "Breakfast Sandwiches",
+        columns: ["Roll", "Hero"],
+        note: "Add hash browns +$1.00",
+        items: [
+          { name: "Bacon, Egg & Cheese", price: "$5.49", price2: "$7.49" },
+          { name: "Sausage, Egg & Cheese", price: "$5.49", price2: "$7.49" },
+          { name: "Ham, Egg & Cheese", price: "$5.49", price2: "$7.49" },
+          { name: "Turkey, Egg & Cheese", price: "$5.49", price2: "$7.49" },
+          { name: "Turkey Bacon, Egg & Cheese", price: "$6.49", price2: "$8.49" },
+          { name: "Pastrami, Egg & Cheese", price: "$6.99", price2: "$8.99" },
+          { name: "Roast Beef, Egg & Cheese", price: "$6.99", price2: "$8.99" },
+          { name: "Bacon, Egg White & Cheese", price: "$6.49", price2: "$7.99" },
+          { name: "Egg & Cheese", price: "$4.99", price2: "$6.49" },
+          { name: "B.L.T.", price: "$5.99", price2: "$7.99" },
+          { name: "Avocado Toast with Bacon", price: "$4.99" },
+          { name: "Grilled Cheese", price: "$5.49" },
+          { name: "Grilled Cheese with Bacon", price: "$6.49" },
+          { name: "PB&J", price: "$3.99" }
+        ]
+      }
+    ]
+  },
+  {
+    title: "Breakfast Combos",
+    columns: ["Roll", "Hero"],
+    items: [
+      { name: "1. Coby Maxx Special", description: "Chicken cutlet, bacon, egg and cheese, hash brown, Russian dressing", price: "$10.99", price2: "$12.99" },
+      { name: "2. Hungry Man", description: "Eggs, bacon, sausage, ham and cheese", price: "$7.49", price2: "$9.49" },
+      { name: "3. Breakfast Burrito", description: "Eggs, chili, cheese with sweet or hot peppers", price: "$7.99", price2: "—" },
+      { name: "4. Health Nut", description: "Egg whites, turkey, Swiss cheese", price: "$6.49", price2: "$8.99" },
+      { name: "5. Wake Up", description: "Salsalito turkey, Colby Jack cheese, egg, hot peppers, hot sauce", price: "$6.99", price2: "$8.99" },
+      { name: "6. Green Life", description: "Egg whites, spinach, avocado, lettuce, Swiss cheese", price: "$6.99", price2: "$8.99" },
+      { name: "7. Maxx Famous", description: "Eggs, Swiss cheese, home fries, bacon or turkey", price: "$6.99", price2: "$8.99" },
+      { name: "8. Maxx Special", description: "Bacon, egg and cheese, chili", price: "$6.99", price2: "$8.99" },
+      { name: "9. Obama’s Combo", description: "Chicken cutlet, bacon, egg, cheese, hash brown, Russian dressing, ketchup, avocado", price: "$11.49", price2: "$13.49" },
+      { name: "10. The Coned", description: "Grilled chicken, egg, cheese, Caesar dressing", price: "$8.49", price2: "$9.99" },
+      { name: "11. The E.R.", description: "Bacon, sausage, ham, turkey, egg and cheese", price: "$8.99", price2: "$10.99" },
+      { name: "12. Steak Breakfast", description: "Steak, egg and cheese", price: "$6.99", price2: "$8.99" }
+    ]
+  },
+  {
+    title: "Signature Sandwiches",
+    columns: ["Roll", "Hero"],
+    note: "Build your Maxx!! sandwich",
+    wide: true,
+    items: [
+      { name: "13. Summer Heat", description: "Turkey, American cheese, bacon, lettuce, mayo", price: "$9.99", price2: "$12.99" },
+      { name: "14. Turkey Ciao — Hot", description: "Turkey, melted mozzarella cheese, tomatoes, mayo", price: "$8.99", price2: "$11.99" },
+      { name: "15. Healthy Turkey", description: "Ovengold turkey, Swiss cheese, mayo on toasted whole wheat bread", price: "$8.99", price2: "$11.99" },
+      { name: "16. The Salsalito — Spicy", description: "Salsalito turkey, American cheese, roasted peppers, tomatoes, mayo", price: "$8.99", price2: "$11.99" },
+      { name: "17. Chicken Italian", description: "Grilled chicken, fresh mozzarella cheese, roasted peppers, lettuce, mayo", price: "$8.99", price2: "$11.99" },
+      { name: "18. The God Father — Hot", description: "Spicy chicken cutlet, melted American cheese, lettuce", price: "$8.99", price2: "$11.99" },
+      { name: "19. Grilled Chicken Special — Hot", description: "Grilled chicken, lettuce, tomatoes, olive oil, balsamic vinegar", price: "$8.99", price2: "$11.99" },
+      { name: "20. Yankee Special — Hot", description: "Chicken cutlet, melted monster cheese, bacon, lettuce, tomatoes, Russian dressing", price: "$8.99", price2: "$11.99" },
+      { name: "21. The Legend — Hot", description: "Roast beef, melted American cheese, bacon, lettuce, tomatoes, mayo", price: "$8.99", price2: "$11.99" },
+      { name: "22. Roast Beef Rampage", description: "Roast beef, coleslaw, Russian dressing", price: "$8.99", price2: "$11.99" },
+      { name: "23. N.Y. Knicks", description: "Roast beef, lettuce, tomatoes, bacon, Russian dressing", price: "$8.99", price2: "$11.99" },
+      { name: "24. Deli Delight", description: "Virginia ham, Swiss cheese, lettuce, honey mustard", price: "$8.99", price2: "$11.99" },
+      { name: "25. Mets Special — Hot", description: "Virginia ham, melted monster cheese, tomatoes, honey mustard", price: "$8.99", price2: "$11.99" },
+      { name: "26. The Village", description: "Fried eggplant, fresh mozzarella, roasted peppers", price: "$7.99", price2: "$9.99" },
+      { name: "27. The Lady in Red", description: "Roast beef, melted cheese, crispy bacon, BBQ sauce", price: "$10.99", price2: "$13.99" },
+      { name: "28. Italian Combo", description: "Cappy ham, salami, pepperoni, provolone, lettuce, tomatoes, oil and vinegar", price: "$9.99", price2: "$12.99" },
+      { name: "29. Blondie", description: "Ham, salami, provolone, lettuce, tomatoes, mayo", price: "$9.99", price2: "$12.99" },
+      { name: "30. Lady Gaga Special", description: "Chicken cutlet, pepperoni, melted American cheese", price: "$8.99", price2: "$11.99" },
+      { name: "31. American Combo", description: "Turkey, bacon, lettuce, tomatoes, mayo", price: "$9.99", price2: "$12.99" },
+      { name: "32. The Caesar", description: "Chicken cutlet, Parmesan cheese, lettuce, Caesar dressing", price: "$8.99", price2: "$11.99" },
+      { name: "33. Cuban", description: "Ham, roasted pork, melted Swiss cheese, pickles, mustard", price: "$9.99", price2: "$12.99" },
+      { name: "34. Fat Boy", description: "Roast beef, ham, turkey, American cheese, lettuce, tomatoes, peppers, onions, mayo", price: "$10.99", price2: "$13.99" },
+      { name: "35. Morgan", description: "Honey turkey, roasted peppers, fresh mozzarella, mayo, balsamic vinegar", price: "$8.99", price2: "$11.99" },
+      { name: "36. Atomic Bomb", description: "Buffalo chicken, pepper jack, tomatoes, hot peppers, hot sauce, ranch dressing", price: "$8.99", price2: "$11.99" },
+      { name: "37. Rueben", description: "Pastrami, Swiss cheese, sauerkraut, Russian dressing", price: "$8.99", price2: "$11.99" },
+      { name: "38. The Vinny", description: "Chicken cutlet, fresh mozzarella, roasted peppers, balsamic vinegar", price: "$8.99", price2: "$11.99" },
+      { name: "39. Hulk Smash", description: "Ovengold turkey, provolone cheese, avocado, lettuce, tomatoes, mayo", price: "$9.99", price2: "$12.99" },
+      { name: "40. Hercules", description: "Chicken cutlet, prosciutto, fresh mozzarella, tomatoes, roasted peppers, balsamic vinegar", price: "$8.99", price2: "$11.99" },
+      { name: "41. Zeus", description: "Grilled chicken, prosciutto, fresh mozzarella, roasted peppers, red onion, Italian dressing", price: "$8.99", price2: "$11.99" },
+      { name: "42. Tiger Beef", description: "Roast beef, cheddar cheese, horseradish sauce", price: "$9.99", price2: "$12.99" },
+      { name: "43. Pepper Jack Club", description: "Pepper turkey, pepper jack cheese, onions, Russian dressing", price: "$8.99", price2: "$11.99" },
+      { name: "44. Spicy Hot", description: "Hot pepper turkey, Salsalito turkey, pepper jack cheese, lettuce, tomatoes, onions, mayo", price: "$9.99", price2: "$12.99" },
+      { name: "45. N.Y. Giants", description: "Roast beef, American cheese, coleslaw, lettuce, tomatoes, onions, mayo", price: "$9.99", price2: "$12.99" },
+      { name: "46. The Dragon", description: "Hot chipotle grilled chicken, Colby Jack cheese, hot peppers, chipotle mayo", price: "$8.99", price2: "$11.99" },
+      { name: "47. Knock Out", description: "Hot blazing buffalo chicken, Colby Jack cheese, lettuce, tomatoes, onions, chipotle mayo", price: "$8.99", price2: "$11.99" },
+      { name: "48. The E", description: "Chicken cutlet, prosciutto, monster cheese, lettuce, tomatoes, onions, mayo", price: "$8.99", price2: "$11.99" },
+      { name: "49. Texas Ranger", description: "Chicken cutlet, bacon, cheddar cheese, BBQ sauce", price: "$9.99", price2: "$12.99" },
+      { name: "50. N.Y.C. Chop Cheese", description: "Chopped burger meat, American cheese, lettuce, tomatoes, mayo, choice of sauce", price: "$8.99", price2: "$11.99" },
+      { name: "51. Mets Special", description: "Grilled chicken, melted monster cheese, bacon, lettuce, tomatoes, Russian dressing", price: "$9.99", price2: "$12.99" },
+      { name: "52. The Sonic", description: "Grilled chicken, fresh mozzarella, lettuce, tomatoes, blue cheese dressing", price: "$8.99", price2: "$11.99" },
+      { name: "53. Jay-Smooth", description: "Chicken cutlet, pepper jack cheese, banana peppers, mayo", price: "$8.99", price2: "$11.99" },
+      { name: "54. Larry Bird", description: "Honey ham, honey turkey, Swiss cheese, lettuce, tomatoes, honey mustard", price: "$9.99", price2: "$12.99" },
+      { name: "55. Key Bank", description: "Honey turkey, American cheese, lettuce, tomatoes, mayo", price: "$8.99", price2: "$11.99" },
+      { name: "56. Space Jam", description: "Spicy chicken cutlet, Swiss cheese, bacon, ranch, hot sauce", price: "$9.99", price2: "$12.99" },
+      { name: "57. John Gotti", description: "Chicken cutlet, fresh mozzarella, spinach, balsamic vinegar", price: "$8.99", price2: "$11.99" },
+      { name: "58. Chicken Parmesan", price: "$7.99", price2: "$9.99" },
+      { name: "59. Eggplant Parmesan", price: "$7.99", price2: "$9.99" },
+      { name: "60. Meatball Parmesan", price: "$7.99", price2: "$9.99" },
+      { name: "61. 670", description: "Chicken cutlets, pepper jack cheese, black beans, pico de gallo, avocado, chipotle mayo", price: "$9.99", price2: "$12.99" }
+    ]
+  },
+  {
+    title: "Wraps",
+    items: [
+      { name: "Grilled Chicken", description: "Grilled chicken, romaine lettuce, tomatoes, honey mustard dressing", price: "$9.99" },
+      { name: "The Vegetarian", description: "Fried eggplant, fresh mozzarella, balsamic vinegar", price: "$8.99" },
+      { name: "Honey Ham", description: "Honey ham, cheddar cheese, lettuce, tomatoes, honey mustard", price: "$9.99" },
+      { name: "Buffalo Chicken", description: "Blazing buffalo chicken, bacon, American cheese, hot sauce, ranch dressing", price: "$10.99" },
+      { name: "Healthy", description: "Turkey, lettuce, tomatoes, onions", price: "$9.99" },
+      { name: "Honey Turkey", description: "Maple honey turkey, lettuce, tomatoes, honey mustard", price: "$9.99" },
+      { name: "Supernova", description: "Grilled chicken, avocado, roasted peppers, balsamic vinegar", price: "$10.99" },
+      { name: "Coby P.D.", description: "Pesto chicken, mozzarella cheese, lettuce, tomatoes", price: "$9.99" },
+      { name: "Speed Ticket", description: "Chipotle grilled chicken, Colby Jack cheese, cherry peppers, hot sauce", price: "$9.99" },
+      { name: "Bulk Season", description: "Grilled chicken, chicken cutlet, avocado, balsamic vinegar", price: "$12.99" },
+      { name: "Sweet Heat", description: "Salsalito turkey, Colby Jack cheese, onions, honey mustard", price: "$9.99" },
+      { name: "Pesto Mania", description: "Pesto grilled chicken, fresh mozzarella, roasted peppers", price: "$9.99" },
+      { name: "True Diet", description: "Avocado, roasted peppers, lettuce, tomatoes, balsamic vinegar", price: "$8.99" }
+    ]
+  },
+  {
+    title: "Philly Cheese Steaks",
+    columns: ["Roll", "Hero"],
+    items: [
+      { name: "N.Y. Philly", description: "Steak, cheese, onions, bacon, banana peppers, lettuce, tomatoes, BBQ sauce", price: "$9.99", price2: "$12.99" },
+      { name: "Mexican Philly", description: "Steak, Colby Jack cheese, onions, bacon, cherry peppers, spicy mayo, lettuce", price: "$9.99", price2: "$12.99" },
+      { name: "Mushroom Philly", description: "Steak, Swiss cheese, onions, mushrooms, lettuce, tomatoes, peppers, on garlic bread", price: "$8.99", price2: "$11.99" },
+      { name: "Chicken Philly", description: "Sliced chicken breast, American cheese, onions, peppers, mayo", price: "$8.99", price2: "$11.99" },
+      { name: "Monster Philly", description: "Philly steak, burger meat, hot chili, Swiss cheese, peppers, onions", price: "$10.99", price2: "$13.99" },
+      { name: "Green Goblin", description: "Philly steak, American cheese, peppers, onions, avocado", price: "$9.99", price2: "$12.99" },
+      { name: "Philly Cheese Steak", description: "Philly steak, American cheese, peppers, onions, choice of sauce", price: "$8.99", price2: "$11.99" }
+    ]
+  },
+  {
+    title: "Milkshakes",
+    items: [
+      { name: "Strawberry Milkshake", price: "$6.99" },
+      { name: "Vanilla Milkshake", price: "$6.99" },
+      { name: "Chocolate Milkshake", price: "$6.99" }
+    ]
+  },
+  {
+    title: "Fresh Salad Bar",
+    subtitle: "Create Your Own Salad",
+    price: "$7.99/lb",
+    groups: [
+      { title: "1. Pick Your Greens", description: "Mixed greens, romaine, baby spinach" },
+      { title: "2. Choose Your Toppings", description: "Beets, beans, broccoli, carrots, celery, chickpeas, corn, cucumber, eggs, mushrooms, red onions, croutons, cherry peppers, grape tomatoes, pickled jalapeño peppers, green olives, roasted red peppers, pickles, cheddar cheese, green peppers, bean sprouts, banana peppers, black olives, feta cheese, walnuts, Parmesan cheese, almond seeds, sunflower seeds, mozzarella cheese, cranberries, chicken, eggs, bacon, avocado" },
+      { title: "3. Choose Your Dressing", description: "Balsamic vinaigrette, blue cheese, French dressing, Italian dressing, ranch, Caesar, Russian dressing, honey mustard, oil and vinegar" }
+    ]
+  },
+  {
+    title: "Fruit Smoothies",
+    items: [
+      { name: "1. Strawberry Blast", description: "Strawberries, banana, mango", price: "$7.99" },
+      { name: "2. Mango Madness", description: "Mango, banana, pineapple, honey, almond milk", price: "$7.99" },
+      { name: "3. Aloha", description: "Banana, strawberry, blueberry, yogurt, honey, almond milk", price: "$7.99" },
+      { name: "4. The Healthy", description: "Strawberry, mango, kiwi, spinach, almond milk", price: "$7.99" },
+      { name: "5. Sweet Trio", description: "Strawberries, pineapple, mango, almond milk", price: "$7.99" },
+      { name: "6. Nutty Time", description: "Strawberry, banana, peanut butter, almond milk", price: "$7.99" },
+      { name: "7. Strawberry Smoothie", description: "Strawberry, banana, almond milk", price: "$5.99" },
+      { name: "8. Tropical Mix", description: "Strawberry, blueberry, mango, pineapple, coconut flakes", price: "$7.99" },
+      { name: "9. Healthy Garden", description: "Spinach, strawberry, banana, water", price: "$7.99" },
+      { name: "10. Sir Daniels", description: "Strawberry, banana, blueberry, honey, almond, coconut water", price: "$7.99" },
+      { name: "11. Coned CB", description: "Spinach, strawberries, blueberries, mango, pineapple, honey", price: "$7.99" },
+      { name: "12. Pop Smoke", description: "Banana, coconut water, almonds, spinach, coconut, mango, blueberries", price: "$7.99" },
+      { name: "13. Green Man", description: "Pineapple, mango, banana, spinach, coconut water, honey", price: "$7.99" },
+      { name: "14. Coby Blogs", description: "Strawberry, pineapple, cucumber, coconut, banana, honey", price: "$7.99" },
+      { name: "15. Less Stress", description: "Beets, blueberry, mango, spinach, strawberry, coconut water, banana", price: "$7.99" },
+      { name: "16. Sunshine", description: "Pineapple, mango, strawberry, coconut water, honey", price: "$7.99" },
+      { name: "17. Brazy", description: "Strawberry, pineapple, banana, honey, apple juice", price: "$7.99" }
+    ]
+  },
+  {
+    title: "Protein Shakes",
+    items: [
+      { name: "1. Energy Mixer", description: "Banana, strawberry, blueberry, protein, almond milk", price: "$8.99" },
+      { name: "2. Green Machine", description: "Avocado, strawberry, spinach, kiwi, protein, almond milk", price: "$8.99" },
+      { name: "3. Delgado", description: "Peanut butter, banana, oatmeal, vanilla protein, almond milk", price: "$8.99" },
+      { name: "4. Maxx Special", description: "Strawberry, blueberry, banana, coconut, almonds, honey, vanilla protein, almond milk", price: "$8.99" },
+      { name: "5. Wake Up Bomb", description: "Coffee, coconut, honey, peanut butter, protein, almond milk", price: "$8.99" },
+      { name: "6. The Wood Fields", description: "Oatmeal, granola, almonds, vanilla protein, peanut butter, almond milk", price: "$8.99" },
+      { name: "7. Spider Shake", description: "Banana, strawberry, coconut, granola, peanut butter, honey, chocolate protein, almond milk", price: "$8.99" },
+      { name: "8. Power Nut", description: "Peanut butter, coconut, oatmeal, banana, vanilla protein, coconut water", price: "$8.99" },
+      { name: "9. Free Man", description: "Blueberry, granola, oatmeal, honey, peanut butter, chocolate protein, almond milk", price: "$8.99" },
+      { name: "10. Taylor Gang", description: "Pineapple, strawberry, blueberry, carrot, spinach, vanilla protein, almond milk", price: "$8.99" },
+      { name: "11. D.J. Tay", description: "Banana, strawberry, peanut butter, granola, honey, vanilla protein, almond milk", price: "$8.99" },
+      { name: "12. Uncle Wally", description: "Strawberry, banana, coconut flakes, granola, honey, cinnamon, vanilla protein", price: "$8.99" }
+    ]
+  },
+  {
+    title: "Burgers",
+    items: [
+      { name: "Texas Burger", description: "Burger meat, American cheese, bacon, egg, mayo, ketchup", price: "$9.99" },
+      { name: "Fire & Ice Burger", description: "Burger meat, Colby Jack cheese, bacon, lettuce, tomatoes, chipotle mayo", price: "$8.99" },
+      { name: "The Coned Burger", description: "Burger meat, cheddar cheese, bacon, fried onions, mushrooms, Russian dressing", price: "$8.99" }
+    ]
+  },
+  {
+    title: "Maxx Deals",
+    items: [
+      { name: "Cheeseburger Deluxe", description: "With fries and a can of soda", price: "$10.99" },
+      { name: "Double Cheeseburger Deluxe", description: "With fries and a can of soda", price: "$11.99" },
+      { name: "Bacon Cheeseburger", description: "With fries and a can of soda", price: "$11.99" },
+      { name: "Double Bacon Cheeseburger", description: "With fries and a can of soda", price: "$12.99" },
+      { name: "Big Fat Moma", description: "Double cheeseburger, bacon, mozzarella sticks and onion rings, with fries and a can of soda", price: "$16.99" },
+      { name: "Chicken or Lamb Gyro", description: "Only $9.99 · With fries and a can of soda", price: "$13.99" },
+      { name: "Chicken or Lamb Over Rice", description: "Small / Large", price: "$9.99", price2: "$12.99" },
+      { name: "Mixed Chicken & Lamb Over Rice", description: "Small / Large", price: "$10.99", price2: "$14.99" },
+      { name: "Chop Cheese", description: "With fries and a can of soda · Roll / Hero", price: "$11.99", price2: "$14.99" },
+      { name: "Philly Cheese Steak", description: "With fries and a can of soda · Roll / Hero", price: "$11.99", price2: "$14.99" },
+      { name: "Fish Sandwich", description: "With fries and a can of soda", price: "$11.99" }
+    ]
+  },
+  {
+    title: "Quesadilla",
+    items: [
+      { name: "Flame On Quesadilla", description: "Chipotle grilled chicken, Colby Jack cheese", price: "$11.99" },
+      { name: "Hot Spinach Quesadilla", description: "Pesto grilled chicken, spinach, mozzarella cheese", price: "$11.99" },
+      { name: "Chop Cheese Quesadilla", price: "$11.99" },
+      { name: "Philly Cheese Steak Quesadilla", price: "$11.99" },
+      { name: "Chicken Bacon Ranch Quesadilla", price: "$11.99" },
+      { name: "Cheesy Cheese Quesadilla", description: "Grilled chicken, pepper jack, mozzarella cheese, American cheese", price: "$11.99" }
+    ]
+  },
+  {
+    title: "Appetizers",
+    items: [
+      { name: "Fries", price: "$4.99" },
+      { name: "Cheese Fries", price: "$5.49" },
+      { name: "Onion Rings", price: "$4.99" },
+      { name: "Pickle Fries", price: "$7.25" },
+      { name: "Mozzarella Sticks", description: "6 pieces", price: "$5.99" },
+      { name: "Chili Cheese Fries", price: "$6.99" },
+      { name: "Cheddar Jalapeño Poppers", price: "$7.25" },
+      { name: "Mac & Cheese Bites", price: "$7.25" },
+      { name: "Fried Mushrooms", price: "$7.25" }
+    ]
+  },
+  {
+    title: "Wings by the Piece",
+    note: "Choose a flavor and dip",
+    items: [
+      { name: "10 Pieces", price: "$11.99" },
+      { name: "20 Pieces", price: "$24.99" },
+      { name: "30 Pieces", price: "$35.99" },
+      { name: "50 Pieces", price: "$59.99" },
+      { name: "100 Pieces", price: "$99.99" }
+    ],
+    extras: ["Mild", "Buffalo", "Sweet Chili", "Original Hot", "Lemon Pepper", "Garlic Parm", "Cajun", "BBQ"]
+  }
+] %}
+
+{% macro menuItems(items, columns) %}
+  {% if columns %}
+    <div class="mb-3 grid grid-cols-[minmax(0,1fr)_3.75rem_3.75rem] gap-3 text-right text-xs font-bold uppercase tracking-wide text-amber-300">
+      <span></span>
+      <span>{{ columns[0] }}</span>
+      <span>{{ columns[1] }}</span>
+    </div>
+  {% endif %}
+  <ul class="space-y-4">
+    {% for item in items %}
+      <li class="grid break-inside-avoid gap-x-3 border-b border-zinc-800/80 pb-4 last:border-0 last:pb-0 {% if columns or item.price2 %}grid-cols-[minmax(0,1fr)_3.75rem_3.75rem]{% else %}grid-cols-[minmax(0,1fr)_auto]{% endif %}">
+        <div class="min-w-0">
+          <span class="font-extrabold uppercase leading-snug tracking-wide text-zinc-50">{{ item.name }}</span>
+          {% if item.description %}
+            <p class="mt-1 text-sm leading-snug text-zinc-300">{{ item.description }}</p>
+          {% endif %}
+        </div>
+        <span class="text-right font-extrabold text-amber-300">{{ item.price }}</span>
+        {% if columns or item.price2 %}
+          <span class="text-right font-extrabold text-amber-300">{{ item.price2 | default("—") }}</span>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endmacro %}
+
+{% macro menuCard(section, showTitle = true) %}
+  <section class="rounded-xl border-2 border-amber-500/50 bg-zinc-900/70 p-5 shadow-lg shadow-black/30 md:p-6">
+    {% if showTitle %}
+      <div class="mb-6 flex flex-wrap items-end justify-between gap-3 border-b border-zinc-700/70 pb-4">
+        <div>
+          <h3 class="text-2xl font-black uppercase tracking-wide text-zinc-50 md:text-3xl">{{ section.title }}</h3>
+          {% if section.subtitle %}<p class="mt-1 font-bold uppercase tracking-wide text-amber-300">{{ section.subtitle }}</p>{% endif %}
+        </div>
+        {% if section.price %}<p class="text-xl font-black text-amber-300">{{ section.price }}</p>{% endif %}
+      </div>
+    {% endif %}
+
+    {% if section.groups %}
+      <div class="space-y-8">
+        {% for group in section.groups %}
+          <div>
+            <h4 class="mb-3 inline-flex rounded-lg border-2 border-amber-500/50 bg-red-900/80 px-4 py-2 text-lg font-extrabold uppercase tracking-wide text-zinc-50">{{ group.title }}</h4>
+            {% if group.description %}<p class="text-sm leading-relaxed text-zinc-300">{{ group.description }}</p>{% endif %}
+            {% if group.items %}{{ menuItems(group.items, group.columns) }}{% endif %}
+            {% if group.note %}<p class="mt-4 font-bold uppercase tracking-wide text-amber-300">{{ group.note }}</p>{% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      {% if section.wide %}<div class="lg:columns-2 lg:gap-10">{% endif %}
+        {{ menuItems(section.items, section.columns) }}
+      {% if section.wide %}</div>{% endif %}
+    {% endif %}
+
+    {% if section.note %}<p class="mt-5 font-bold uppercase tracking-wide text-amber-300">{{ section.note }}</p>{% endif %}
+    {% if section.extras %}
+      <ul class="mt-4 flex flex-wrap gap-2">
+        {% for extra in section.extras %}
+          <li class="rounded-full border border-amber-400/50 bg-black/20 px-3 py-1 text-sm font-bold uppercase text-zinc-100">{{ extra }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </section>
+{% endmacro %}
+
+{% set menuGroups = [
+  {
+    title: "Breakfast",
+    id: "breakfast",
+    columns: 2,
+    sections: [menuSections[0], menuSections[1]]
+  },
+  {
+    title: "Entrées",
+    id: "entrees",
+    columns: 3,
+    sections: [menuSections[3], menuSections[4], menuSections[6], menuSections[9], menuSections[10], menuSections[11], menuSections[12], menuSections[13]]
+  },
+  {
+    title: "Signature Sandwiches",
+    id: "signature-sandwiches",
+    columns: 1,
+    sections: [menuSections[2]]
+  },
+  {
+    title: "Drinks & Beverages",
+    id: "drinks-beverages",
+    columns: 3,
+    sections: [menuSections[5], menuSections[7], menuSections[8]]
+  }
+] %}
+
+<article class="bg-[#681315]">
+  <header class="relative overflow-hidden border-b border-red-800/50">
+    <img
+      src="/assets/images/maxx-deli-hero.png"
+      alt=""
+      class="absolute inset-0 h-full w-full object-cover object-[center_45%] opacity-40"
+      loading="eager"
+      eleventy:ignore
+    >
+    <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/65 to-black/35"></div>
+    <div class="container relative flex min-h-[30rem] max-w-7xl flex-col justify-center py-16 md:min-h-[38rem] md:py-20 lg:min-h-[44rem]">
+      <p class="mb-3 text-sm font-bold uppercase tracking-wider text-amber-300">Maxx Deli &amp; Shop</p>
+      <h1 class="max-w-4xl text-balance text-zinc-50">Menu</h1>
+      <p class="mt-5 max-w-2xl text-lg font-medium text-zinc-100 md:text-xl">
+        Breakfast, stacked sandwiches, wraps, cheesesteaks, burgers, smoothies, and plenty more.
+      </p>
+      <nav class="mt-8 flex flex-wrap gap-3" aria-label="Menu sections">
+        {% for menuGroup in menuGroups %}
+          <a
+            href="#{{ menuGroup.id }}"
+            class="rounded-full border-2 border-amber-500/60 bg-[#351111]/80 px-4 py-2 text-sm font-bold uppercase tracking-wide text-amber-300 no-underline transition-colors hover:border-amber-300 hover:bg-[#351111] hover:text-amber-200"
+          >
+            {{ menuGroup.title }}
+          </a>
+        {% endfor %}
+      </nav>
+    </div>
+  </header>
+
+  <div class="container max-w-7xl py-12 md:py-16">
+    <div class="space-y-16 md:space-y-20">
+      {% for menuGroup in menuGroups %}
+        <section id="{{ menuGroup.id }}" class="scroll-mt-6">
+          <div class="mb-6 rounded-xl border-2 border-amber-400/70 bg-gradient-to-r from-[#a41e22] via-[#701417] to-[#351111] px-4 py-3 shadow-md shadow-black/35 ring-1 ring-black/25 md:px-5">
+            <h2 class="text-3xl font-black uppercase tracking-wide text-amber-200 drop-shadow-md md:text-4xl">{{ menuGroup.title }}</h2>
+          </div>
+
+          <div class="grid items-start gap-6 {% if menuGroup.columns == 2 %}lg:grid-cols-2{% elif menuGroup.columns == 3 %}lg:grid-cols-2 xl:grid-cols-3{% endif %}">
+            {% for section in menuGroup.sections %}
+              {{ menuCard(section, menuGroup.title != "Signature Sandwiches") }}
+            {% endfor %}
+          </div>
+        </section>
+      {% endfor %}
+    </div>
+  </div>
+</article>

@@ -1,0 +1,14 @@
+# Footer Configuration
+
+columns:
+  - title: Pages
+    links:
+      - label: Home
+        url: /
+      - label: About
+        url: /about/
+      - label: Menu
+        url: /menu/
+
+# Add legal links here when final policies are available.
+legal: []

@@ -1,0 +1,108 @@
+---
+layout: layouts/base.njk
+title: Home
+description: "Maxx Deli & Shop serves made-to-order sandwiches, deli classics, and everyday favorites."
+permalink: /index.html
+---
+{% from "_components/index.njk" import button %}
+
+<section class="relative min-h-[calc(100vh-5rem)] overflow-hidden bg-[#681315]">
+  <img
+    src="/assets/images/maxx-deli-hero.png"
+    alt=""
+    class="absolute inset-0 h-full w-full object-cover object-center opacity-55"
+    loading="eager"
+    eleventy:ignore
+  >
+  <div class="absolute inset-0 bg-gradient-to-b from-zinc-950/65 via-zinc-950/45 to-zinc-950"></div>
+  <div class="relative container flex min-h-[calc(100vh-5rem)] items-end pb-12 pt-24 md:pb-16">
+    <div class="max-w-3xl">
+      <p class="mb-3 text-sm font-bold uppercase tracking-wider text-primary-300">Your neighborhood deli</p>
+      <h1 class="text-balance text-zinc-50 drop-shadow-lg">Maxx Deli &amp; Shop</h1>
+      <p class="mt-5 max-w-xl text-xl font-medium text-zinc-100 text-pretty drop-shadow">
+        Made-to-order sandwiches, deli classics, and everyday favorites—served fresh and stacked right.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-4">
+        {{ button({
+          text: "View Menu",
+          url: "/menu/",
+          variant: "primary",
+          size: "lg"
+        }) }}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-[#681315]">
+  <div class="container">
+    <div class="mx-auto mb-12 max-w-4xl text-center md:mb-16">
+      <p class="mb-3 text-sm font-extrabold uppercase tracking-wider text-primary-300">Fresh, fast, and local</p>
+      <h2 class="text-5xl font-black uppercase leading-tight text-zinc-50 md:text-6xl lg:text-7xl">Come Hungry</h2>
+      <p class="mx-auto mt-5 max-w-2xl text-lg font-semibold text-zinc-200 md:text-xl">
+        Maxx Deli &amp; Shop is getting ready to serve up generous sandwiches and classic deli favorites.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-4">
+      <div class="card p-6">
+        <p class="mb-3 text-sm font-bold uppercase tracking-wide text-primary-300">Call Ahead</p>
+        <h3 class="mb-2 text-xl font-bold text-zinc-50">Pickup Orders</h3>
+        <p class="text-zinc-200">Give us a call to place your order for pickup.</p>
+        <a href="tel:+15182547210" class="mt-5 block text-2xl font-extrabold text-amber-300 no-underline hover:text-amber-200">518-254-7210</a>
+      </div>
+
+      <div class="card p-6">
+        <p class="mb-3 text-sm font-bold uppercase tracking-wide text-primary-300">Hours</p>
+        <h3 class="mb-2 text-xl font-bold text-zinc-50">Visit Maxx Deli &amp; Shop</h3>
+        <p class="text-zinc-200">Open daily for breakfast, lunch, dinner, and everything between.</p>
+        <p class="mt-5 text-lg font-extrabold uppercase tracking-wide text-red-300">10:00AM–10:00PM</p>
+      </div>
+
+      <div class="card p-6">
+        <p class="mb-3 text-sm font-bold uppercase tracking-wide text-primary-300">Location</p>
+        <h3 class="mb-2 text-xl font-bold text-zinc-50">Find Us</h3>
+        <p class="text-zinc-200">Stop in and see us on West Main Street.</p>
+        <address class="mt-5 text-lg font-extrabold not-italic text-zinc-50">513 W Main Street<br>Cobleskill, NY 12043</address>
+      </div>
+
+      <div class="card p-6">
+        <p class="mb-3 text-sm font-bold uppercase tracking-wide text-primary-300">Delivery</p>
+        <h3 class="mb-2 text-xl font-bold text-zinc-50">Order Online</h3>
+        <p class="text-zinc-200">Available through Uber Eats, Grubhub, and DoorDash.</p>
+        <div class="mt-5 flex flex-wrap items-center gap-2" aria-label="Delivery providers">
+          <a href="#" @click.prevent aria-label="Order with Uber Eats" class="inline-flex h-11 min-w-14 items-center justify-center rounded-lg border-2 border-transparent bg-white px-3 no-underline shadow-sm transition hover:-translate-y-0.5 hover:border-amber-300 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-amber-300">
+            <img src="/providers/ubereats.svg" alt="Uber Eats" class="h-7 w-auto" loading="lazy" eleventy:ignore>
+          </a>
+          <a href="#" @click.prevent aria-label="Order with Grubhub" class="inline-flex h-11 min-w-20 items-center justify-center rounded-lg border-2 border-transparent bg-white px-3 no-underline shadow-sm transition hover:-translate-y-0.5 hover:border-amber-300 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-amber-300">
+            <img src="/providers/grubhub.svg" alt="Grubhub" class="h-6 w-auto" loading="lazy" eleventy:ignore>
+          </a>
+          <a href="#" @click.prevent aria-label="Order with DoorDash" class="inline-flex h-11 min-w-14 items-center justify-center rounded-lg border-2 border-transparent bg-white px-3 no-underline shadow-sm transition hover:-translate-y-0.5 hover:border-amber-300 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-amber-300">
+            <img src="/providers/doordash.svg" alt="DoorDash" class="h-7 w-auto" loading="lazy" eleventy:ignore>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="my-32 bg-[#681315]">
+  <div class="container">
+    <div class="overflow-hidden rounded-xl border-2 border-red-800/70 bg-zinc-900/80 shadow-lg shadow-zinc-950/40">
+      <div class="px-6 py-5 md:px-8">
+        <p class="text-sm font-bold uppercase tracking-wider text-primary-300">Find Us</p>
+        <h2 class="mt-2 text-3xl font-extrabold text-zinc-50">513 W Main Street, Cobleskill</h2>
+      </div>
+      <div class="aspect-[4/3] w-full sm:aspect-[16/9] lg:aspect-[21/9]">
+        <iframe
+          src="https://www.google.com/maps?q=513+W+Main+Street,+Cobleskill,+NY+12043&amp;output=embed"
+          title="Map showing Maxx Deli &amp; Shop at 513 W Main Street in Cobleskill, New York"
+          class="h-full w-full border-0"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>

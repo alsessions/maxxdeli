@@ -1,0 +1,14 @@
+{
+  "name": "Maxx Deli & Shop",
+  "short_name": "Maxx Deli & Shop",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "theme_color": "#b91c1c",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}

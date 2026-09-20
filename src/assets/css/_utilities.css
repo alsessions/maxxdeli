@@ -1,0 +1,131 @@
+/**
+ * Custom utilities
+ */
+
+/* Container */
+@utility container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Section spacing */
+@utility section {
+  @apply py-16 md:py-24;
+}
+
+@utility section-sm {
+  @apply py-8 md:py-12;
+}
+
+@utility section-lg {
+  @apply py-24 md:py-32;
+}
+
+/* Text balance for headings */
+@utility text-balance {
+  text-wrap: balance;
+}
+
+/* Text pretty for paragraphs */
+@utility text-pretty {
+  text-wrap: pretty;
+}
+
+/* Gradient text */
+@utility text-gradient {
+  @apply bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-primary-200 via-primary-400 to-orange-300;
+}
+
+/* Card component */
+@utility card {
+  @apply bg-zinc-900 rounded-lg shadow-sm;
+  @apply border border-red-800/70;
+  @apply p-6;
+}
+
+@utility card-hover {
+  @apply transition-shadow duration-200;
+  @apply hover:shadow-md;
+}
+
+/* Badge component */
+@utility badge {
+  @apply inline-flex items-center;
+  @apply px-2.5 py-0.5 text-xs font-medium rounded-full;
+}
+
+@utility badge--primary {
+  @apply bg-primary-300 text-zinc-950;
+}
+
+@utility badge--secondary {
+  @apply bg-zinc-800 text-zinc-100;
+}
+
+@utility badge--success {
+  @apply bg-green-100 text-green-800;
+}
+
+@utility badge--warning {
+  @apply bg-amber-100 text-amber-800;
+}
+
+@utility badge--error {
+  @apply bg-red-100 text-red-800;
+}
+
+/* Alert component */
+@utility alert {
+  @apply p-4 rounded-lg border-l-4;
+}
+
+@utility alert--info {
+  @apply bg-blue-50 border-blue-500 text-blue-800;
+}
+
+@utility alert--success {
+  @apply bg-green-50 border-green-500 text-green-800;
+}
+
+@utility alert--warning {
+  @apply bg-amber-50 border-amber-500 text-amber-800;
+}
+
+@utility alert--error {
+  @apply bg-red-50 border-red-500 text-red-800;
+}
+
+/* Aspect ratios */
+@utility aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
+@utility aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+@utility aspect-portrait {
+  aspect-ratio: 3 / 4;
+}
+
+/* Skeleton loading */
+@utility skeleton {
+  @apply animate-pulse bg-zinc-800 rounded;
+}
+
+/* Divider */
+@utility divider {
+  @apply border-t border-zinc-800 my-8;
+}
+
+/* Visually hidden (for screen readers) */
+@utility sr-only {
+  @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
+  clip: rect(0, 0, 0, 0);
+}
+
+/* Not sr-only (show again) */
+@utility not-sr-only {
+  @apply static w-auto h-auto p-0 m-0 overflow-visible whitespace-normal;
+  clip: auto;
+}

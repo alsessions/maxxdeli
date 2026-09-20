@@ -1,0 +1,13 @@
+# Header Navigation
+navigation:
+  - label: Home
+    url: /
+  - label: About
+    url: /about/
+  - label: Menu
+    url: /menu/
+
+# Call to action button
+cta:
+  label: View Menu
+  url: /menu/

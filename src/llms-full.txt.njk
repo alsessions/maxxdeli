@@ -1,0 +1,24 @@
+---
+permalink: /llms-full.txt
+eleventyExcludeFromCollections: true
+---
+# {{ metadata.title }}
+
+> {{ metadata.description }}
+
+---
+
+## Pages
+
+{%- for page in collections.pages %}
+{%- if not page.data.llms_exclude and not page.data.eleventyExcludeFromCollections %}
+
+### {{ page.data.title }}
+
+URL: {{ build.url }}{{ page.url }}
+
+{{ page.templateContent | striptags | collapseWhitespace }}
+
+---
+{%- endif %}
+{%- endfor %}

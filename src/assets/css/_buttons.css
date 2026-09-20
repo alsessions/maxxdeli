@@ -1,0 +1,89 @@
+@layer components {
+  .btn {
+    @apply px-6 py-2.5 text-base bg-primary-400 rounded-full shadow-md no-underline;
+    @apply text-zinc-950 font-bold cursor-pointer;
+    @apply inline-flex items-center justify-center gap-3;
+    @apply border-primary-300 border-2 hover:brightness-110;
+    @apply transition-all duration-300 ease-in-out;
+    @apply hover:-translate-y-0.5 hover:shadow-lg;
+    @apply whitespace-nowrap !no-underline;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary-300 focus:ring-offset-2 focus:ring-offset-zinc-950;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none;
+  }
+
+  .pager {
+    @apply inline-flex items-center justify-center;
+    @apply w-10 h-10 text-sm font-medium;
+    @apply rounded-full transition-colors;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary-300 focus:ring-offset-2 focus:ring-offset-zinc-950;
+  }
+}
+
+/* Button variants */
+@utility btn--primary {
+  @apply text-zinc-950 bg-primary-400 border-primary-300;
+}
+
+@utility btn--secondary {
+  @apply text-primary-200 bg-zinc-900 border-current;
+}
+
+@utility btn--outline {
+  @apply text-primary-200 bg-transparent border-primary-300 hover:bg-primary-400 hover:text-zinc-950;
+}
+
+@utility btn--ghost {
+  @apply text-zinc-100 bg-transparent border-transparent shadow-none hover:bg-zinc-900;
+}
+
+@utility btn--white {
+  @apply text-zinc-950 bg-zinc-50 border-zinc-50 shadow-lg;
+  @apply hover:bg-primary-100 hover:text-zinc-950;
+  @apply focus:ring-zinc-50;
+}
+
+@utility btn--danger {
+  @apply text-white bg-red-700 border-red-700 focus:ring-red-400;
+}
+
+@utility btn--disabled {
+  @apply opacity-50 cursor-not-allowed pointer-events-none;
+}
+
+/* Button sizes */
+@utility btn--xs {
+  @apply px-3 py-1 text-xs gap-1.5;
+}
+
+@utility btn--sm {
+  @apply px-4 py-1.5 text-sm gap-2;
+}
+
+@utility btn--md {
+  @apply px-6 py-2.5 text-base gap-3;
+}
+
+@utility btn--lg {
+  @apply px-8 py-3.5 text-lg gap-3;
+}
+
+@utility btn--full {
+  @apply w-full;
+}
+
+/* Pagination variants */
+@utility pager--link {
+  @apply text-zinc-100 bg-zinc-900 border border-zinc-700 hover:bg-zinc-800 hover:border-zinc-500;
+}
+
+@utility pager--current {
+  @apply text-zinc-950 bg-primary-400 border border-primary-300;
+}
+
+@utility pager--disabled {
+  @apply text-zinc-500 bg-zinc-900 border border-zinc-800 cursor-not-allowed;
+}
+
+@utility pager--ellipsis {
+  @apply text-zinc-500 cursor-default;
+}

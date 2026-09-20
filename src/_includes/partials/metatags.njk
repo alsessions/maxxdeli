@@ -1,0 +1,59 @@
+{# SEO Meta Tags #}
+
+{# Set page-specific or fallback values #}
+{% set pageTitle = title | default(metadata.title) %}
+{% set pageDescription = description | default(metadata.description) %}
+{% set pageUrl = build.url + page.url %}
+{% set pageImage = image | default(metadata.image) %}
+
+{# Basic meta tags #}
+<title>{{ pageTitle }}{% if title %} | {{ metadata.title }}{% endif %}</title>
+<meta name="description" content="{{ pageDescription | striptags | truncate(160) }}">
+<meta name="generator" content="{{ eleventy.generator }}">
+
+{# Canonical URL #}
+<link rel="canonical" href="{{ pageUrl }}">
+
+{# Robots #}
+{% if noindex %}
+  <meta name="robots" content="noindex, nofollow">
+{% else %}
+  <meta name="robots" content="index, follow">
+{% endif %}
+
+{# Site Verification #}
+{% if tracking.google_site_verification %}
+<meta name="google-site-verification" content="{{ tracking.google_site_verification }}">
+{% endif %}
+{% if tracking.bing_site_verification %}
+<meta name="msvalidate.01" content="{{ tracking.bing_site_verification }}">
+{% endif %}
+
+{# Open Graph #}
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ pageTitle }}">
+<meta property="og:description" content="{{ pageDescription | striptags | truncate(160) }}">
+<meta property="og:url" content="{{ pageUrl }}">
+<meta property="og:site_name" content="{{ metadata.title }}">
+{% if pageImage %}
+  <meta property="og:image" content="{{ build.url }}{{ pageImage }}">
+{% endif %}
+<meta property="og:locale" content="{{ metadata.language | default('en_US') }}">
+
+{# Twitter Card #}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ pageTitle }}">
+<meta name="twitter:description" content="{{ pageDescription | striptags | truncate(160) }}">
+{% if pageImage %}
+  <meta name="twitter:image" content="{{ build.url }}{{ pageImage }}">
+{% endif %}
+{% if metadata.twitter %}
+  <meta name="twitter:site" content="{{ metadata.twitter }}">
+{% endif %}
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta name="apple-mobile-web-app-title" content="{{ metadata.title }}" />
+<link rel="manifest" href="/site.webmanifest" />
+
+{# Theme color #}
+<meta name="theme-color" content="{{ metadata.themeColor | default('#65a30d') }}">

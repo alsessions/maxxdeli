@@ -1,0 +1,88 @@
+{# Site Header with Navigation #}
+{% from "_components/index.njk" import button %}
+
+<header class="relative z-50 border-b-2 border-amber-500/50 bg-[#351111]/95 text-amber-300 shadow-lg shadow-black/25 backdrop-blur-sm" x-data="{ mobileMenuOpen: false }">
+  <div class="w-full px-4 sm:px-6 lg:px-10 xl:px-12">
+    <nav class="flex items-center justify-between h-16 md:h-20">
+      {# Brand #}
+      <a href="/" class="flex flex-1 items-center gap-2 text-xl font-black uppercase tracking-wide text-amber-300 no-underline hover:text-amber-200">
+        <img src="/favicon.svg" alt="" width="32" height="32" class="w-8 h-8" eleventy:ignore>
+        <span class="hidden sm:inline">{{ metadata.title | default("Maxx Deli & Shop") }}</span>
+        <span class="sr-only">{{ metadata.title | default("Maxx Deli & Shop") }}</span>
+      </a>
+
+      {# Desktop Navigation #}
+      <div class="hidden md:flex items-center gap-8">
+        {% for item in header.navigation %}
+          <a
+            href="{{ item.url }}"
+            class="nav-link text-sm font-bold uppercase tracking-wide text-amber-300 transition-colors no-underline hover:text-amber-200{% if page.url == item.url %} text-amber-200{% endif %}"
+          >
+            {{ item.label }}
+          </a>
+        {% endfor %}
+      </div>
+
+      {# Right side: CTA + Mobile menu #}
+      <div class="flex items-center justify-end gap-3 flex-1">
+        {# Desktop CTA #}
+        {% if header.cta %}
+          <div class="hidden md:block">
+            {{ button({
+              text: header.cta.label,
+              url: header.cta.url,
+              variant: "outline",
+              className: "!text-amber-300",
+              size: "sm"
+            }) }}
+          </div>
+        {% endif %}
+
+        {# Mobile menu button #}
+        <button
+          type="button"
+          @click="mobileMenuOpen = !mobileMenuOpen"
+          class="md:hidden p-2 text-amber-300 hover:text-amber-200"
+          :aria-expanded="mobileMenuOpen"
+          aria-label="Toggle navigation menu"
+        >
+          <span x-show="!mobileMenuOpen">{% phosphor "list", "bold", { size: 24 } %}</span>
+          <span x-show="mobileMenuOpen" x-cloak>{% phosphor "x", "bold", { size: 24 } %}</span>
+        </button>
+      </div>
+    </nav>
+
+    {# Mobile Navigation #}
+    <div
+      x-show="mobileMenuOpen"
+      x-cloak
+      x-collapse
+      class="border-t border-amber-500/40 md:hidden"
+    >
+      <div class="py-4 space-y-2">
+        {% for item in header.navigation %}
+          <a
+            href="{{ item.url }}"
+            @click="mobileMenuOpen = false"
+            class="block rounded-lg px-4 py-2 text-base font-bold uppercase tracking-wide text-amber-300 no-underline hover:bg-black/25 hover:text-amber-200{% if page.url == item.url %} bg-black/30 text-amber-200{% endif %}"
+          >
+            {{ item.label }}
+          </a>
+        {% endfor %}
+
+        {# Mobile CTA #}
+        {% if header.cta %}
+          <div class="px-4 pt-4">
+            {{ button({
+              text: header.cta.label,
+              url: header.cta.url,
+              variant: "outline",
+              className: "!text-amber-300",
+              full: true
+            }) }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</header>
