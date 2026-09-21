@@ -6,7 +6,7 @@ permalink: /index.html
 ---
 {% from "_components/index.njk" import button %}
 
-<section class="relative min-h-[calc(100vh-5rem)] overflow-hidden bg-[#681315]">
+<section class="relative overflow-hidden bg-[#681315]">
   <img
     src="/assets/images/maxx-deli-hero.png"
     alt=""
@@ -15,7 +15,7 @@ permalink: /index.html
     eleventy:ignore
   >
   <div class="absolute inset-0 bg-gradient-to-b from-zinc-950/65 via-zinc-950/45 to-zinc-950"></div>
-  <div class="relative container flex min-h-[calc(100vh-5rem)] items-end pb-12 pt-24 md:pb-16">
+  <div class="relative container flex min-h-[30rem] items-end pb-12 pt-24 md:min-h-[36rem] md:pb-16 lg:min-h-[40rem]">
     <div class="max-w-3xl">
       <p class="mb-3 text-sm font-bold uppercase tracking-wider text-primary-300">Your neighborhood deli</p>
       <h1 class="text-balance text-zinc-50 drop-shadow-lg">Maxx Deli &amp; Shop</h1>
@@ -36,12 +36,26 @@ permalink: /index.html
 
 <section class="section bg-[#681315]">
   <div class="container">
-    <div class="mx-auto mb-12 max-w-4xl text-center md:mb-16">
-      <p class="mb-3 text-sm font-extrabold uppercase tracking-wider text-primary-300">Fresh, fast, and local</p>
+    <div class="mx-auto mb-20 max-w-4xl text-center">
+      <p class="mb-3 text-base font-extrabold uppercase tracking-wider text-primary-300">Fresh, fast, and local</p>
       <h2 class="text-5xl font-black uppercase leading-tight text-zinc-50 md:text-6xl lg:text-7xl">Come Hungry</h2>
       <p class="mx-auto mt-5 max-w-2xl text-lg font-semibold text-zinc-200 md:text-xl">
         Maxx Deli &amp; Shop is getting ready to serve up generous sandwiches and classic deli favorites.
       </p>
+    </div>
+
+    <p class="my-4 text-center text-base font-extrabold uppercase tracking-wider text-primary-300">Proudly Serving</p>
+    <div class="mx-auto mb-12 flex max-w-5xl flex-wrap items-center justify-center gap-5 md:mb-16" aria-label="Featured food brands">
+      
+      <div class="flex h-36 w-full max-w-72 items-center justify-center p-3">
+        <img src="/assets/images/logos/cheesecake-factory.webp" alt="The Cheesecake Factory" class="max-h-full w-full object-contain" loading="lazy" eleventy:ignore>
+      </div>
+      <div class="flex h-36 w-full max-w-72 items-center justify-center p-3">
+        <img src="/assets/images/logos/chesters.webp" alt="Chester's Chicken To Go" class="max-h-full w-full object-contain" loading="lazy" eleventy:ignore>
+      </div>
+      <div class="flex h-36 w-full max-w-72 items-center justify-center p-3">
+        <img src="/assets/images/logos/wingman.webp" alt="Wingman Pizza" class="max-h-full w-full object-contain" loading="lazy" eleventy:ignore>
+      </div>
     </div>
 
     <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
