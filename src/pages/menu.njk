@@ -393,6 +393,20 @@ description: "Breakfast, signature sandwiches, wraps, cheesesteaks, burgers, smo
           </a>
         {% endfor %}
       </nav>
+      <div class="mt-6">
+        <p class="text-sm font-bold uppercase tracking-wide text-amber-300">Order Delivery</p>
+        <div class="mt-3 flex flex-wrap items-center gap-2" aria-label="Delivery providers">
+          <a href="#" @click.prevent aria-label="Order with Uber Eats" class="inline-flex h-11 min-w-14 items-center justify-center rounded-lg border-2 border-transparent bg-white px-3 no-underline shadow-sm transition hover:-translate-y-0.5 hover:border-amber-300 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-amber-300">
+            <img src="/providers/ubereats.svg" alt="Uber Eats" class="h-7 w-auto" loading="lazy" eleventy:ignore>
+          </a>
+          <a href="#" @click.prevent aria-label="Order with Grubhub" class="inline-flex h-11 min-w-20 items-center justify-center rounded-lg border-2 border-transparent bg-white px-3 no-underline shadow-sm transition hover:-translate-y-0.5 hover:border-amber-300 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-amber-300">
+            <img src="/providers/grubhub.svg" alt="Grubhub" class="h-6 w-auto" loading="lazy" eleventy:ignore>
+          </a>
+          <a href="#" @click.prevent aria-label="Order with DoorDash" class="inline-flex h-11 min-w-14 items-center justify-center rounded-lg border-2 border-transparent bg-white px-3 no-underline shadow-sm transition hover:-translate-y-0.5 hover:border-amber-300 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-amber-300">
+            <img src="/providers/doordash.svg" alt="DoorDash" class="h-7 w-auto" loading="lazy" eleventy:ignore>
+          </a>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -400,7 +414,7 @@ description: "Breakfast, signature sandwiches, wraps, cheesesteaks, burgers, smo
     <div class="space-y-16 md:space-y-20">
       {% for menuGroup in menuGroups %}
         <section id="{{ menuGroup.id }}" class="scroll-mt-6">
-          <div class="mb-6 rounded-xl border-2 border-amber-400/70 bg-gradient-to-r from-[#a41e22] via-[#701417] to-[#351111] px-4 py-3 shadow-md shadow-black/35 ring-1 ring-black/25 md:px-5">
+          <div class="mb-6 rounded-xl bg-gradient-to-r from-[#c52a30] from-0% via-[#7d161a] via-55% to-[#351111] px-4 py-3 shadow-md shadow-black/35 md:px-5">
             <h2 class="text-3xl font-black uppercase tracking-wide text-amber-200 drop-shadow-md md:text-4xl">{{ menuGroup.title }}</h2>
           </div>
 
